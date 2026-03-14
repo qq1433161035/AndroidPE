@@ -13,9 +13,9 @@ android {
     }
     
     compileOptions {
-		sourceCompatibility JavaVersion.VERSION_17
-		targetCompatibility JavaVersion.VERSION_17
-	}
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
     
     buildFeatures {
         viewBinding true
@@ -25,4 +25,7 @@ android {
 dependencies {
     implementation libs.androidx.appcompat
     implementation libs.google.material
+
+    // 👇 修复本次所有属性缺失报错
+    implementation libs.androidx.preference
 }
