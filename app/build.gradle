@@ -16,10 +16,12 @@ android {
         vectorDrawables.useSupportLibrary = true
     }
     
+    // 这里我帮你开启了 coreLibraryDesugaring
     compileOptions {
-		sourceCompatibility JavaVersion.VERSION_17
-		targetCompatibility JavaVersion.VERSION_17
-	}
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+        coreLibraryDesugaringEnabled true
+    }
     
 	buildFeatures {
         viewBinding true
@@ -31,6 +33,9 @@ android {
 }
 
 dependencies {
+    // 👇 这一行是修复你报错的关键！
+    coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:2.0.4'
+
     // project
     implementation project(':rkb:codeEV:codeEditor')
     implementation project(':rkb:resourcesUtils')
@@ -59,3 +64,4 @@ dependencies {
     implementation libs.lottie
     implementation libs.androidsvg
 }
+
